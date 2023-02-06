@@ -1,0 +1,28 @@
+server:
+  port: 8083
+  servlet:
+    context-path: /dynamic-db
+
+spring:
+  application:
+    name: dynamic-datasource
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  datasource: # 多数据源配置
+    db1:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://127.0.0.1:3307/db1?useUnicode=true&characterEncoding=utf8&useSSL=false
+      username: root
+      password: 123456
+    db2:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://127.0.0.1:3307/db2?useUnicode=true&characterEncoding=utf8&useSSL=false
+      username: root
+      password: 123456
+    type: com.alibaba.druid.pool.DruidDataSource
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://127.0.0.1:3307/db1?useUnicode=true&characterEncoding=utf8&useSSL=false
+#    username: root
+#    password: 123456
